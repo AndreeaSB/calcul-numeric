@@ -1,0 +1,135 @@
+#include <iostream>
+#include <math.h>
+#include <conio.h>
+using namespace std;
+
+
+// exercitiu 1
+/*float function(float x) {
+	return (x * exp(x)) - 1;
+}
+
+float derfunction(float x) {
+	return (x + 1)* exp(x);
+}
+
+int main() {
+	int	ITMAX, n;
+	float init_x, eps, fin_x;
+
+	cin >> init_x;
+	cin >> eps;
+	cin >> ITMAX;
+
+	fin_x = init_x;
+	n = 1;
+
+	while ((abs(function(fin_x)) > eps) && (n <= ITMAX)) {
+		fin_x = fin_x - (function(fin_x) / derfunction(fin_x));
+		n++;
+	}
+
+	if( n > ITMAX ) {
+		cout << "Nu a fost realizata aproximarea dorita";
+	}
+	else {
+		cout << fin_x;
+		cout << n;
+	}
+	_getch();
+	return 0;
+}*/
+
+//exercitiu 2
+
+/*int main() {
+	int  ITMAX, n;
+	float init_x, fin_x, eps, a, p;
+
+	cin >> a;
+	cin >> p;
+	cin >> init_x;
+	cin >> eps;
+	cin >> ITMAX;
+
+	n = 1;
+	fin_x = init_x;
+	while (((pow(fin_x, p) - a) > eps) && (n <= ITMAX)) {
+		fin_x = (1/p)*((p - 1)*fin_x + (a/ (pow(fin_x, (p-1)))));
+		n = n + 1;
+		cout << fin_x << endl;
+	}
+	if (n > ITMAX) {
+		cout << "Nu a fost realizata aproximarea dorita";
+	}
+	else {
+		cout << fin_x<< " " << n;
+	}
+
+
+	_getch();
+	return 0;
+ }*/
+
+//exercitiul 3
+/*float function(float x) {
+	return (x * exp(x)) - 1;
+}
+int main() {
+	float x0, x1,fin_x, eps;
+	int ITMAX,n;
+	cin >> x0;
+	cin >> x1;
+	cin >> eps;
+	cin >> ITMAX;
+
+	n = 1;
+	while ((abs(function(x1)) > eps) && (n <= ITMAX)) {
+		fin_x = x1 - ((function(x1)*(x1 - x0)) / (function(x1) - function(x0)));
+		x0 = x1;
+		x1 = fin_x;
+		n++;
+	}
+
+	if (n > ITMAX) {
+		cout << "Nu a fost realizata aproximarea dorita";
+	}
+	else {
+		cout << fin_x << " " << n;
+	}
+
+	_getch();
+	return 0;
+}*/
+
+// exercitiu 4
+float function(float x) {
+	x = (-1)* x;
+	return exp(x);
+}
+int main() {
+	float init_x=5.0, fin_x, eps=0.001;
+	int ITMAX=100, n;
+
+	//cin >> init_x;
+	//cin >> eps;
+	//cin >> ITMAX;
+
+	fin_x = init_x;
+	n = 1;
+	while ((abs(fin_x - function(fin_x)) > eps) && (n <= ITMAX)) {
+		fin_x = function(fin_x);
+		n++;
+		cout <<n << "+"<< fin_x << endl;
+	}
+
+	if (n > ITMAX) {
+		cout << "Nu a fost realizata aproximarea dorita";
+	}
+	else {
+		cout << fin_x << " " << n;
+	}
+
+	_getch();
+	return 0;
+}
